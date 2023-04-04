@@ -1,0 +1,23 @@
+// protobuf-practice执行protoc --java_out=src/main/java src/main/resources/protobuf/Student.proto
+
+// 使用 proto3 语法 ,未指定则使用proto2
+syntax = "proto3";
+
+// 缺省时的包名，
+// 如果下面没有设置java_package则会使用此设置，
+// 如果设置了则不会使用。
+package org.mytest.test.protobuf;
+
+// 文件级别的选项，Protocol Buffer定义三种优化级别SPEED、CODE_SIZE、LITE_RUNTIME。
+// SPEED: 默认级别。表示生成的代码运行效率高，但是由此生成的代码编译后会占用更多的空间。
+option optimize_for =SPEED;
+// 生成代码的包路径
+option java_package = "org.mytest.test.protobuf";
+// 生成Java类的名称，如果未指定该值，则会根据.proto文件的名称采用驼峰式的命名方式进行生成
+option java_outer_classname = "StudentProtoBuf";
+
+message Student {
+  string name = 1;
+  int32 age = 2;
+  string address = 3;
+}
