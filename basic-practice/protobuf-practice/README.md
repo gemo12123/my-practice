@@ -56,6 +56,8 @@ message Student {
 }
 ```
 
+> 注意`java_outer_classname`不能与`message`定义相同
+
 * `syntax`：定义语法类型，未指定则默认使用proto2。必须是文件的第一个非空、非注释行。 
 * `package`：缺省时的包名，如果下面没有设置java_package则会使用此设置，如果设置了则不会使用。
 * `option`
