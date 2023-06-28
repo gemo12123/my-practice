@@ -1,6 +1,7 @@
 package org.mytest.test.protobuf.demo;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.util.JsonFormat;
 import org.mytest.test.protobuf.StudentProtoBuf;
 
 public class Client {
@@ -18,5 +19,7 @@ public class Client {
 
         StudentProtoBuf.Student parseResult = StudentProtoBuf.Student.parseFrom(bytes);
         System.out.println(parseResult);
+
+        System.out.println(JsonFormat.printer().print(parseResult));
     }
 }
