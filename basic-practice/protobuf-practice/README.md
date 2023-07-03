@@ -206,6 +206,20 @@ message ErrorStatus {
 }
 ```
 
+##### Map
+
+​	 创建关联映射作为数据定义的一部分，protobuf 提供了一个方便的快捷语法： 
+
+```protobuf
+map<key_type, value_type> map_field = N;
+```
+
+*  其中 `key_type` 可以是任何整数或字符串类型（即除浮点类型和`bytes`之外的任何标量类型  ）
+*  枚举不是有效的 `key_type` 
+*  `value_type` 可以是除map之外的任何类型。
+*  映射字段不能为 `repeated` 。
+* 
+
 ##### Oneof
 
  	包含许多字段的消息，并且最多同时设置一个字段，则可以强制使用此行为并使用 `oneof` 功能节省内存。 **如果设置了多个值，则由原型中的顺序确定的最后一个设置值将覆盖所有先前的值。** 
@@ -262,3 +276,54 @@ import "old.proto";
 ​	可以将已删除的字段编号添加到 `reserved` 列表中。若要确保仍然可以解析消息的 JSON 和 TextFormat 实例，还要将已删除的字段名称添加到 `reserved` 列表中。 
 
 > 不能在同一 `reserved` 语句中混合使用字段名称和字段编号 
+
+#### 6.message
+
+```protobuf
+message SearchRequest {
+  string query = 1;
+  int32 page_number = 2;
+  int32 results_per_page = 3;
+}
+
+message SearchResponse {
+ ...
+}
+```
+
+#### 7.service
+
+```protobuf
+service SearchService {
+  rpc search(SearchRequest) returns (SearchResponse);
+}
+```
+
+### 4.Maven插件
+
+```xml
+<plugin>
+    <groupId>org.xolstice.maven.plugins</groupId>
+    <artifactId>protobuf-maven-plugin</artifactId>
+    <version>0.6.1</version>
+
+    <configuration>
+        <!-- proto文件目录 -->
+        <protoSourceRoot>${basedir}/src/main/proto</protoSourceRoot>
+        <!-- 生成的Java文件目录，默认是${project.build.directory}/generated-sources/protobuf -->
+        <outputDirectory>${basedir}/src/main/java/</outputDirectory>
+        <!-- 是否清空输出文件，默认true（false即为追加式生成） -->
+        <clearOutputDirectory>false</clearOutputDirectory>
+    </configuration>
+    <executions>
+        <execution>
+            <goals>
+                <goal>compile</goal>
+                <goal>test-compile</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
+> 当使用gRPC时，通过在configuration中配置pluginId，可以直接输出service

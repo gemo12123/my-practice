@@ -1,4 +1,4 @@
-package org.mytest.test.protobuf.demo;
+package org.mytest.test.demo;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.util.JsonFormat;
