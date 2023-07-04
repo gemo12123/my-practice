@@ -299,6 +299,8 @@ service SearchService {
 }
 ```
 
+> 使用 gRPC 时，可以通过给请求/返回值前面加一个`stream`关键字，声明该方法是客户端/服务端流式RPC
+
 ### 4.Maven插件
 
 ```xml
