@@ -236,10 +236,10 @@ message SimpleMessage {
 
 #### 4.公共导入
 
-> ​	可以使用其他消息类型作为字段类型，如果消息类型在同一个文件中则无需导入，否则需要通过 `import`关键字进行导入，如 `import "myproject/other_protos.proto";` 
+> 可以使用其他消息类型作为字段类型，如果消息类型在同一个文件中则无需导入，否则需要通过 `import`关键字进行导入，如 `import "myproject/other_protos.proto";` 。IDEA 中如果无法导入，可能需要修改项目配置的源根目录作为 protobuf 导入路径： `Settings > Languages & Frameworks > Protocol Buffers`  
 >
 
-> ​	 可以导入 proto2 消息类型并在 proto3 消息中使用它们，反之亦然。但是，不能在 proto3 语法中直接使用 proto2 枚举（如果导入的 proto2 消息使用它们也没关系）。 
+> 可以导入 proto2 消息类型并在 proto3 消息中使用它们，反之亦然。但是，不能在 proto3 语法中直接使用 proto2 枚举（如果导入的 proto2 消息使用它们也没关系）。 
 
 ​	 默认情况下，只能使用直接导入`.proto`文件中的定义。但是，有时可能需要将`.proto`文件移动到新位置。 可以将占位符文件放在旧位置，以使用 `import public` 将所有导入转发到新位置，而不是`.proto`直接移动文件并在一次更改中更新所有调用站点。 
 
