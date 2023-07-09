@@ -329,3 +329,25 @@ service SearchService {
 ```
 
 > 当使用gRPC时，通过在configuration中配置pluginId，可以直接输出service
+
+### 5.注意事项
+
+* 序列化
+
+  1. 引入依赖
+
+     ```xml
+     <dependency>
+         <groupId>com.google.protobuf</groupId>
+         <artifactId>protobuf-java-util</artifactId>
+         <!--<scope>runtime</scope>-->
+     </dependency>
+     ```
+
+  2. 执行序列化
+
+     ```java
+     JsonFormat.printer().includingDefaultValueFields().print(response); //建议加上includingDefaultValueFields()配置项，否则枚举字段可能无法序列化
+     ```
+
+     
