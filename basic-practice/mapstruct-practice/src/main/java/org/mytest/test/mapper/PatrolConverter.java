@@ -26,7 +26,7 @@ public interface PatrolConverter {
     PatrolTaskItemDTO taskItem2dto(PatrolTaskItemDO taskItemDO);
 
     /**
-     * 这里如果使用了建造者模式，则@MappingTarget务必使用其Builder对象
+     * 这里如果使用了建造者模式，则@MappingTarget务必使用其Builder对象，参看https://github.com/mapstruct/mapstruct/issues/3176
      *
      * @param taskItemDO
      * @param taskItemDTO
