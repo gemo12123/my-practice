@@ -11,7 +11,9 @@ import org.mytest.test.entity.dto.PatrolTaskItemDTO;
 import org.mytest.test.entity.dto.PatrolTaskTimePeriodDTO;
 import org.mytest.test.mapper.PatrolConverter;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -74,19 +76,44 @@ public class MapStructTest {
     }
 
     @Test
-    public void testDo2DTO01() {
+    public void testTask01() {
         System.out.println(patrolTaskDO);
         System.out.println(PatrolConverter.INSTANCE.taskdo2dto(patrolTaskDO));
     }
+    @Test
+    public void testTask02(){
+        PatrolTaskDTO cast = PatrolConverter.INSTANCE.taskdo2dto(patrolTaskDO);
+        PatrolTaskDO pt2 = PatrolConverter.INSTANCE.dto2taskdo(cast);
+        pt2.setId("22222");
+        List<PatrolTaskDO> tasks = Arrays.asList(patrolTaskDO, pt2);
+        System.out.println(PatrolConverter.INSTANCE.taskdo2dto(tasks));
+    }
+    @Test
+    public void testTask03() {
+        System.out.println(patrolTaskDO);
+        System.out.println(PatrolConverter.INSTANCE.taskdo2dtoWithId(patrolTaskDO));
+    }
 
     @Test
-    public void testDo2DTO02(){
+    public void testTaskItem01(){
         System.out.println(patrolTaskItemDO);
         System.out.println(PatrolConverter.INSTANCE.taskItem2dto(patrolTaskItemDO));
     }
     @Test
-    public void testDo2DTO03(){
+    public void testTaskItem02(){
+        System.out.println(patrolTaskItemDTO);
+        System.out.println(PatrolConverter.INSTANCE.dto2taskItem(patrolTaskItemDTO));
+    }
+
+    @Test
+    public void testTimePeriod01(){
         System.out.println(patrolTaskTimePeriodDO);
         System.out.println(PatrolConverter.INSTANCE.taskTimePeriod2dto(patrolTaskTimePeriodDO));
+    }
+    @Test
+    public void testTimePeriod02(){
+        System.out.println(patrolTaskTimePeriodDTO);
+        System.out.println(PatrolConverter.INSTANCE.dto2taskTimePeriod(patrolTaskTimePeriodDTO));
+        System.out.println(PatrolConverter.INSTANCE.dto2taskTimePeriod2(patrolTaskTimePeriodDTO));
     }
 }
