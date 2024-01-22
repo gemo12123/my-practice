@@ -17,6 +17,7 @@
     <modules>
         <module>spring-annotation-practice</module>
         <module>spring-state-machine</module>
+        <module>spring-event</module>
     </modules>
 
     <properties>
