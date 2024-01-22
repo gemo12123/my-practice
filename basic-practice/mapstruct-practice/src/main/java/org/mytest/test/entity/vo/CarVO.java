@@ -3,6 +3,7 @@ package org.mytest.test.entity.vo;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @author gemo
@@ -16,4 +17,6 @@ public class CarVO {
     private String location;
     private String price;
     private String time;
+
+    List<Object> list;
 }

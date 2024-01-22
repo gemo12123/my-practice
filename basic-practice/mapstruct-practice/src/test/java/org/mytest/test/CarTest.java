@@ -9,6 +9,9 @@ import org.mytest.test.entity.vo.CarVO;
 import org.mytest.test.mapper.CarConverter;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -32,6 +35,11 @@ public class CarTest {
         CarVO carVO = CarConverter.INSTANCE.carDoToCarVo(carDO);
         System.out.println(carDO);
         System.out.println(carVO);
+
+        carDO.setList(Arrays.asList("zs","ls",new Object()));
+        System.out.println(carDO);
+        System.out.println( CarConverter.INSTANCE.carDoToCarVo(carDO));
+        System.out.println();
     }
 
     @Test
@@ -50,5 +58,15 @@ public class CarTest {
         String uuid = UUID.randomUUID().toString();
         System.out.println(uuid);
         System.out.println(CarConverter.INSTANCE.mergeCarAndProducerWithId(carDTO, carProducer,uuid));
+    }
+
+    @Test
+    public void test03(){
+        Map<String, String> map = new HashMap<>();
+        map.put("name","帕萨特");
+        map.put("country","德国");
+        map.put("id", "id");
+        CarVO carVO = CarConverter.INSTANCE.mapToCarVo(map);
+        System.out.println(carVO);
     }
 }

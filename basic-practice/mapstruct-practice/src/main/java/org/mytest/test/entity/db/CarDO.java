@@ -3,6 +3,7 @@ package org.mytest.test.entity.db;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @author gemo
@@ -16,4 +17,6 @@ public class CarDO {
     private String country;
     private Double price;
     private LocalDateTime createTime;
+
+    List<Object> list;
 }
