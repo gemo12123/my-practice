@@ -1,8 +1,6 @@
 package org.mytest.test.mapper;
 
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
+import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 import org.mytest.test.entity.db.CarDO;
 import org.mytest.test.entity.dto.CarDTO;
@@ -46,5 +44,14 @@ public interface CarConverter {
     @Mapping(source = "country", target = "location")
     @Mapping(target = "list", ignore = true)
     CarVO mapToCarVo(Map<String, String> carMap);
+
+    @Named("test")
+    @Condition
+    default boolean isCheck(String s){
+        if (s==null) {
+            return false;
+        }
+        return s.equals("zs");
+    }
 
 }
