@@ -11,6 +11,7 @@
     <modules>
         <module>protobuf-practice</module>
         <module>mapstruct-practice</module>
+        <module>commom-tools-practice</module>
     </modules>
 
 
