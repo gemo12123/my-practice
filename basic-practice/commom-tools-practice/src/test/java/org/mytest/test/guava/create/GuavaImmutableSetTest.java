@@ -18,7 +18,7 @@ public class GuavaImmutableSetTest {
      * 创建
      */
     @Test
-    public void test01(){
+    public void test01() {
         // 默认是RegularImmutableSet
         ImmutableSet<String> color = ImmutableSet.of("red", "orange", "yellow", "green", "blue", "purple", "red");
         System.out.println(color);
@@ -37,7 +37,7 @@ public class GuavaImmutableSetTest {
      * 不可变集合只是指元素不可增删，元素对象本身是可以改变的
      */
     @Test
-    public void test02(){
+    public void test02() {
         Student zs = new Student("zs", 10);
         Student ls = new Student("ls", 10);
         ImmutableSet<Student> students = ImmutableSet.of(zs, ls);
@@ -49,7 +49,7 @@ public class GuavaImmutableSetTest {
 
     @Data
     @AllArgsConstructor
-    public static class Student{
+    public static class Student {
         private String name;
         private int age;
 

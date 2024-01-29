@@ -3,7 +3,10 @@ package org.mytest.test.guava.create;
 import com.google.common.collect.*;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Guava新集合类型的创建
@@ -178,8 +181,8 @@ public class GuavaNewCollectionTest {
      * 有两种实现：MutableClassToInstanceMap 和 ImmutableClassToInstanceMap
      */
     @Test
-    public void test06(){
-        ClassToInstanceMap<Number> map=MutableClassToInstanceMap.create();
+    public void test06() {
+        ClassToInstanceMap<Number> map = MutableClassToInstanceMap.create();
         map.putInstance(Integer.class, Integer.valueOf(0));
         map.putInstance(Integer.class, Integer.valueOf(1));
 
@@ -192,7 +195,7 @@ public class GuavaNewCollectionTest {
      * 当把一个区间添加到可变的RangeSet时，所有相连的区间会被合并，空区间会被忽略。
      */
     @Test
-    public void test07(){
+    public void test07() {
         RangeSet<Integer> rangeSet = TreeRangeSet.create();
         rangeSet.add(Range.closed(1, 10)); // {[1,10]}
         rangeSet.add(Range.closedOpen(11, 15));//不相连区间:{[1,10], [11,15)}
@@ -200,8 +203,8 @@ public class GuavaNewCollectionTest {
         rangeSet.add(Range.openClosed(0, 0)); //空区间; {[1,10], [11,20)}
         rangeSet.remove(Range.open(5, 10)); //分割[1, 10]; {[1,5], [10,10], [11,20)}
 
-        rangeSet.add(Range.open(100,110));
-        rangeSet.add(Range.open(110,120));
+        rangeSet.add(Range.open(100, 110));
+        rangeSet.add(Range.open(110, 120));
         System.out.println(rangeSet);
 
         // 补集
@@ -218,7 +221,7 @@ public class GuavaNewCollectionTest {
         System.out.println(rangeSet.rangeContaining(105));
         System.out.println(rangeSet.rangeContaining(120));
         // 判断RangeSet中是否有任何区间包括给定区间
-        System.out.println(rangeSet.encloses(Range.open(15,18)));
+        System.out.println(rangeSet.encloses(Range.open(15, 18)));
         // 所有区间的最小区间
         System.out.println(rangeSet.span());
     }
@@ -228,7 +231,7 @@ public class GuavaNewCollectionTest {
      * 和RangeSet不同，RangeMap不会合并相邻的映射，即便相邻的区间映射到相同的值。
      */
     @Test
-    public void test08(){
+    public void test08() {
         RangeMap<Integer, String> rangeMap = TreeRangeMap.create();
         rangeMap.put(Range.closed(1, 10), "foo"); //{[1,10] => "foo"}
         rangeMap.put(Range.open(3, 6), "bar"); //{[1,3] => "foo", (3,6) => "bar", [6,10] => "foo"}
