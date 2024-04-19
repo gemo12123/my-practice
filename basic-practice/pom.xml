@@ -12,6 +12,7 @@
         <module>protobuf-practice</module>
         <module>mapstruct-practice</module>
         <module>commom-tools-practice</module>
+        <module>jdk-spi-practice</module>
     </modules>
 
 
