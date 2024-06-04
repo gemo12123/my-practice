@@ -32,6 +32,38 @@
     </dependencies>
 
     <build>
+        <!--maven-resources-plugin 插件打包resource文件时会参考此节点的配置-->
+        <resources>
+            <!-- 是否在jar包中保留配置文件，如果保留则添加此配置 -->
+<!--            <resource>-->
+<!--                &lt;!&ndash;开启filter功能，将路径中的属性名替换为对应的属性值&ndash;&gt;-->
+<!--                <filtering>true</filtering>-->
+<!--                <directory>src/main/resources</directory>-->
+<!--                <includes>-->
+<!--                    <include>**/application*.yml</include>-->
+<!--                    <include>**/application*.yaml</include>-->
+<!--                    <include>**/application*.properties</include>-->
+<!--                </includes>-->
+<!--            </resource>-->
+
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>application*.properties</exclude>
+                    <exclude>application*.yml</exclude>
+                    <exclude>db/**</exclude>
+                </excludes>
+            </resource>
+
+            <!--compile 和 package 时都会使用resource节点的配置-->
+            <!--resource 节点可通过配置将制定目录的文件在打包后拷贝到制定目录-->
+            <!--如果只有这一个resource节点，或者如果把这个resource节点配置在最前面，则会直接把配置文件打包到conf目录classes目录下不会有配置文件，导致IDEA运行时找不到配置文件-->
+            <resource>
+                <directory>src/main/resources</directory>
+                <targetPath>${project.build.directory}/conf</targetPath>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
