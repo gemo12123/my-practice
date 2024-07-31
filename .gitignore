@@ -1,6 +1,7 @@
 ### IntelliJ IDEA ###
 .idea
 *.iml
+*.class
 
 ### Others ###
 /**/.mvn/
