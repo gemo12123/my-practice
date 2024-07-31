@@ -13,6 +13,7 @@
         <module>mapstruct-practice</module>
         <module>common-tools-practice</module>
         <module>jdk-spi-practice</module>
+        <module>json-practice</module>
     </modules>
 
     <dependencies>
