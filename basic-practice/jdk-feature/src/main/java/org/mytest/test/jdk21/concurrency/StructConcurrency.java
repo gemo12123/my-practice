@@ -5,7 +5,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.StructuredTaskScope;
 
 /**
- * StructConcurrency 结构化并发
+ * StructConcurrency 结构化并发，孵化阶段
  */
 public class StructConcurrency {
     public static void main(String[] args) {

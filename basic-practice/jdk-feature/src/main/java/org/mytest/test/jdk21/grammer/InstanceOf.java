@@ -12,12 +12,14 @@ public class InstanceOf {
     }
 
     public static void instanceOf(Object o) {
+        // jdk 16
         if (o instanceof InstanceOfA a) {
             a.a();
         }
         if (o instanceof InstanceOfB b) {
             b.b();
         }
+        // jdk21
         if (o instanceof Shape(String type, long unit)) {
             System.out.println("Shape type is " + type + ", unit is " + unit);
         }

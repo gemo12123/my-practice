@@ -1,9 +1,7 @@
 package org.mytest.test.jdk21.concurrency;
 
 /**
- * ScopeValue 不可变线程共享变量
- *
- * @throws Exception
+ * ScopeValue 不可变线程共享变量，孵化阶段
  */
 public class ScopedValue {
     public static void main(String[] args) throws Exception {
