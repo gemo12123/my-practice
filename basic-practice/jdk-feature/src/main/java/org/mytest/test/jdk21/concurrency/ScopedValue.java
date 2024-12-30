@@ -1,15 +1,15 @@
 package org.mytest.test.jdk21.concurrency;
 
+/**
+ * ScopeValue 不可变线程共享变量
+ *
+ * @throws Exception
+ */
 public class ScopedValue {
     public static void main(String[] args) throws Exception {
         scopeValue();
     }
 
-    /**
-     * ScopeValue 不可变线程共享变量
-     *
-     * @throws Exception
-     */
     private static void scopeValue() throws Exception {
         java.lang.ScopedValue<Integer> scopedValue = java.lang.ScopedValue.newInstance();
         java.lang.ScopedValue.Carrier carrier = java.lang.ScopedValue.where(scopedValue, 123);

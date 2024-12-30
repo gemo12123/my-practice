@@ -4,6 +4,9 @@ import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.StructuredTaskScope;
 
+/**
+ * StructConcurrency 结构化并发
+ */
 public class StructConcurrency {
     public static void main(String[] args) {
         structConcurrency();

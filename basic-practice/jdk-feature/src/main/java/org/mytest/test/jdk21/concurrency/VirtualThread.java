@@ -3,6 +3,9 @@ package org.mytest.test.jdk21.concurrency;
 import java.util.Random;
 import java.util.concurrent.*;
 
+/**
+ * VirtualThread 虚拟线程
+ */
 public class VirtualThread {
     public static void main(String[] args) {
 //        vThreadSuspend();

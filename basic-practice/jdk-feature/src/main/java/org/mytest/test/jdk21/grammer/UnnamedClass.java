@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 未命名类
+ */
 void main() {
     List<String> list = new ArrayList<>();
     list.add("apple");

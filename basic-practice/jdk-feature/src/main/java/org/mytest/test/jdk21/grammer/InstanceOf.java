@@ -1,5 +1,8 @@
 package org.mytest.test.jdk21.grammer;
 
+/**
+ * InstanceOf 增强
+ */
 public class InstanceOf {
 
     public static void main(String[] args) {

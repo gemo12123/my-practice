@@ -2,6 +2,9 @@ package org.mytest.test.jdk21.grammer;
 
 import java.util.ArrayList;
 
+/**
+ * Switch 增强
+ */
 public class Switch {
     public static void main(String[] args) {
         System.out.println(format(10));

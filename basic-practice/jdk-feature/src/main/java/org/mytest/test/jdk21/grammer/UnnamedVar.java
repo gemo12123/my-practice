@@ -2,7 +2,10 @@ package org.mytest.test.jdk21.grammer;
 
 import java.util.ArrayList;
 
-public class UnnameVar {
+/**
+ * 未命名变量
+ */
+public class UnnamedVar {
     public static void main(String[] args) {
 
         try {
