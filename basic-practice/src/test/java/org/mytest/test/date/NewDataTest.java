@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * LocalDate & LocalDateTime 使用
+ * 不带时区信息，因此不能直接转成Instant
  */
 public class NewDataTest {
     @Test
