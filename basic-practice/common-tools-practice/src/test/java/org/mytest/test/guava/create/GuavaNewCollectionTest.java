@@ -10,6 +10,14 @@ import java.util.Set;
 
 /**
  * Guava新集合类型的创建
+ * 新集合包括：
+ *  1.Multiset 是一种Collection类型，类似Map<E, Integer>，键为元素element，值为计数count
+ *  2.Multimap 可以很容易地把一个键映射到多个值，类似Map<K, List<V>>
+ *  3.BiMap 双向Map
+ *  4.Table 支持两个键做索引，类似Map<String, Map<String, String>>
+ *  5.ClassToInstanceMap 是一种特殊的Map：它的键是类型，而值是符合键所指类型的对象。
+ *  6.RangeSet 描述了一组不相连的、非空的区间。
+ *  7.RangeMap 描述了”不相交的、非空的区间”到特定值的映射。
  */
 public class GuavaNewCollectionTest {
 
@@ -115,7 +123,7 @@ public class GuavaNewCollectionTest {
     }
 
     /**
-     * 双向map
+     * BiMap<String, String>双向map
      */
     @Test
     public void test04() {
@@ -246,5 +254,8 @@ public class GuavaNewCollectionTest {
         // 交集
         RangeMap<Integer, String> subRangeMap = rangeMap.subRangeMap(Range.open(2, 4));
         System.out.println(subRangeMap);
+
+        System.out.println(rangeMap);
+        System.out.println(rangeMap.get(15));
     }
 }
