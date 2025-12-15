@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.mytest.test.guava.create.GuavaImmutableSetTest;
 
 import java.util.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 public class CollectionsTest {
 
@@ -132,5 +134,30 @@ public class CollectionsTest {
         System.out.println(Tables.transpose(table));
         // 将每个值都进行函数转换
         System.out.println(Tables.transformValues(table, t -> t + "_test"));
+    }
+
+    /**
+     * Queues
+     */
+    @Test
+    public void test06() {
+        ArrayBlockingQueue<String> blockingQueue = new ArrayBlockingQueue<>(1000);
+        for (int i = 0; i < 1000; i++) {
+            blockingQueue.add(String.valueOf(i));
+        }
+        List<String> list = new ArrayList<>(1001);
+        long lastTime = System.currentTimeMillis();
+        while (true){
+            long currentTime = System.currentTimeMillis();
+            System.out.println("时间间隔：" + (currentTime - lastTime));
+            lastTime = currentTime;
+            // 根据设定的时间间隔，从阻塞队列中获取 BATCH_SIZE 数量的数据写入到 list 列表中
+            // 如果队列中没有数据（为空，无足够数据也不阻塞），则等待指定 timeout
+            Queues.drainUninterruptibly(blockingQueue, list, 100, 1, TimeUnit.SECONDS);
+            if (blockingQueue.isEmpty()) {
+                System.out.println("end...");
+                break;
+            }
+        }
     }
 }
